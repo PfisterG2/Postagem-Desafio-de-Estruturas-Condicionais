@@ -1,0 +1,38 @@
+import pandas as pd
+
+# Exemplo de DataFrame - substitua pelo seu arquivo
+dados = pd.DataFrame({
+    'ID': [1, 2, 32, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    'Filme': ['Filme A', 'Filme B', 'Filme C', 'Filme D', 'Filme E', 'Filme F', 
+              'Filme G', 'Filme H', 'Filme I', 'Filme J', 'Filme K', 'Filme L', 'Filme M'],
+    'Nota': [4.5, 3.2, 4.8, 2.9, 3.0, 1.2, 4.0, 5.0, 3.5, 2.0, 1.0, 4.3, 3.9]
+})
+
+# --- Questão 01 ---
+print("=== Questão 01 ===")
+# Mostrar os 12 primeiros registros
+print("12 primeiros registros:")
+print(dados.head(12))
+
+# Mostrar os 6 últimos registros
+print("\n6 últimos registros:")
+print(dados.tail(6))
+
+# Tamanho da massa de dados
+tamanho = len(dados)
+print(f"\nTamanho da massa de dados: {tamanho}")
+
+# --- Questão 02 ---
+print("\n=== Questão 02 ===")
+# Selecionar filme com ID = 32
+filme_id_32 = dados[dados['ID'] == 32]
+
+if not filme_id_32.empty:  # Verifica se existe algum registro com ID = 32
+    nome_filme = filme_id_32.iloc[0]['Filme']
+    nota_filme = filme_id_32.iloc[0]['Nota']
+    if nota_filme > 3:
+        print(f"O filme '{nome_filme}' tem uma nota {nota_filme} e é considerado um filme bom.")
+    else:
+        print(f"O filme '{nome_filme}' tem uma nota {nota_filme} e não é considerado um filme bom.")
+else:
+    print("Nenhum filme com ID = 32 foi encontrado.")
